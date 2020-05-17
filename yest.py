@@ -5,7 +5,13 @@ op = s.open('bin/test.bd')
 yest = op['yestrdayList']
 
 def setDays(x):
+    check = False
+    if x < (len(yest) - 2):
+        reset()
+        check = True
+
     op['days'] = x
+    return check
 
 def retriveDays():
     x = op['days']

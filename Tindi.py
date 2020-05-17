@@ -62,8 +62,11 @@ class Contain:
             mb.showinfo("Tindi",msg)
             op.close()
 
-            
-            if int(inst.get()) == (y.dayCount()):
+            tempsub = int(inst.get())
+            if y.retriveDays() != tempsub:
+               self.sub()
+
+            if tempsub == (y.dayCount()):
                 y.reset()
                 y.appi(int(ind))
                 # yest.append(int(ind))
@@ -138,8 +141,14 @@ class Contain:
 
 
     def sub(self): 
+        global lbl2
         x = int(inst.get())
-        y.setDays(x)
+        ck = y.setDays(x)
+
+        if ck:
+            lbl2.destroy()   
+            lbl2 = Label(root, text = "Reset" ,font = ("Times New Roman", 16))
+            lbl2.place(x = 200, y = 10)
 
 
 
